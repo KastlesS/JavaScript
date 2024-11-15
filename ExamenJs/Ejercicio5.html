@@ -1,0 +1,30 @@
+<!-- HECHO --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio5</title>
+</head>
+<body>
+    <script>
+        const estudiantes = [
+            { nombre: 'Ana', calificacion: 8 },
+            { nombre: 'Luis', calificacion: 4 },
+            { nombre: 'María', calificacion: 6 },
+            { nombre: 'Juan', calificacion: 7 },
+            { nombre: 'Pedro', calificacion: 3 }
+        ];
+
+        function mostrarAprobados(estudiantes){
+            estudiantes.forEach(element => {
+                if(element.calificacion>=5){
+                    console.log("Estudiante: " + element.nombre + ", nota: " + element.calificacion);
+                }
+            });
+        }
+
+        mostrarAprobados(estudiantes);
+    </script>
+</body>
+</html>

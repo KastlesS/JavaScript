@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        td,th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Juego del Tetris</h1>
+    <table>
+        <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        const tabla=[];
+        for(let i=0;i<20;i++){
+            let fila=[];
+            for(let j=0;j<10;j++){
+                fila[j]=0;
+            }
+            tabla[i]=fila;
+        }
+
+        console.log(tabla);
+
+        //FIGURAS DEL TETRIS:
+
+        const cuadrado=[
+            [1,1],
+            [1,1]
+        ];
+        console.log(cuadrado)
+
+        let L1=[
+            [2,0],
+            [2,0],
+            [2,2]
+        ];
+        console.log(L1)
+
+        let L2=[
+            [0,3],
+            [0,3],
+            [3,3]
+        ];
+        console.log(L2)
+
+        let T1=[
+            [0,4,0],
+            [4,4,4]
+        ];
+        console.log(T1)
+
+        let P1=[
+            [5],
+            [5],
+            [5]
+        ];
+        console.log(P1)
+
+
+        let S1=[
+            [0,6,6],
+            [6,6,0]
+        ];
+        console.log(S1);
+
+        function colocarFicha(ficha,x,y){
+            if(x<10 && x>=0 && y>=0 && y<20){
+                for(let i=0;i<ficha.length;i++){
+                    for(let k=0;k<ficha[i].length;k++){
+                        if((y+i)<20 && (x+k)<10){
+                            tabla[y+i][x+k]=ficha[i][k]
+                        }
+                    }
+                }
+                console.log(tabla);
+            }else{
+                console.log("ERROR: PARÁMETROS INCORRECTOS");
+            }
+        }
+
+        function rotarFicha(ficha){
+            //EL .LENGTH DEL ARRAY SERÁN LAS COLUMNAS Y EL .LENGTH DE CADA ELEMENTO LAS FILAS
+            const nuevaFicha=[];
+            for(let i=0;i<ficha[0].length;i++){
+                let fila=[];
+                let cont=ficha.length;
+                for(let k=0;k<ficha.length;k++){
+                    fila[k]=ficha[cont][cont-k];
+                    cont--;
+                }
+                nuevaFicha[i]=fila;
+            }
+            console.log(nuevaFicha);
+        }
+
+        colocarFicha(L1,1,0);
+        rotarFicha(L2);
+    </script>
+</body>
+</html>

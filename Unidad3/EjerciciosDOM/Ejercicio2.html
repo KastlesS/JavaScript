@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <form action="">
+        <label for="">Nombre: <input type="text" name="name" id="name"> <p id="error"></p></label>
+        <label for="">Apellidos: <input type="text" name="cont" id="cont"> <p id="error2"></p></label>
+        <button type="button" onclick="comprobar()">Enviar</button>
+        <p id="ok"></p>
+    </form>
+
+    <script>
+        function comprobar(){
+            let nombre = document.getElementById("name");
+            let apellidos = document.getElementById("cont");
+            console.log("Nombre: " + nombre.value + ", Contraseña: " + apellidos.value);
+            if(nombre.value==""){
+                document.getElementById("error").innerHTML="Nombre vacío";
+            }else if(apellidos.value==""){
+                document.getElementById("error2").innerHTML="Apellidos vacíos";
+            }else{
+                document.getElementById("ok").innerHTML="Todo correcto";
+            }
+        }
+    </script>
+</body>
+</html>

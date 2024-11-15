@@ -1,0 +1,21 @@
+<!-- HECHO --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2</title>
+</head>
+<body>
+    <script>
+        let temperatura = parseInt(prompt("Ingresa tu temperatura corporal en grados"));
+        const kelvil = temperatura => temperatura + 273;
+
+        if(!isNaN(temperatura)){
+            console.log("Temperatura del usuario : " + kelvil(temperatura));
+        }else{
+            console.log("No has introducido un número válido :(");
+        }
+    </script>
+</body>
+</html>

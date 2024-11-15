@@ -1,0 +1,33 @@
+<!-- HECHO --> 
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>JavaScript Objects</h1>
+    <h2>Display Properties</h2>
+    <p id="demo"></p>
+    <script>
+        // Create an Object
+        const zapato = {
+            modelo: "formal",
+            numero: 41,
+            tacon: false,
+            color: "negro"
+        };
+
+        function bellezaInterior(zapato){
+            let array=[];
+            let cont=0;
+            for(let x in zapato){
+                array[cont]=zapato[x];
+                cont++;
+            }
+            console.log(array);
+            return array;
+        }
+
+        const array = bellezaInterior(zapato);
+
+        document.getElementById("demo").innerHTML=array;
+    </script>
+</body>
+</html>

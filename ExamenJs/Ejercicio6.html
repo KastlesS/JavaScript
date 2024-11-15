@@ -1,0 +1,29 @@
+<!-- HECHO --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio6</title>
+</head>
+<body>
+    <script>
+        function concatenaySuma(){
+            let total=0;
+            let texto="";
+            for(let i=0;i<=arguments.length-1;i++){
+                if(isNaN(arguments[i])){
+                    texto+=arguments[i];
+                }else{
+                    total+=arguments[i];
+                }
+            }
+            console.log(texto);
+            return total;
+        }
+
+        let total = concatenaySuma("caca", 3, "buenas", 5, "adios", 1);
+        console.log("La suma total es: " + total);
+    </script>
+</body>
+</html>

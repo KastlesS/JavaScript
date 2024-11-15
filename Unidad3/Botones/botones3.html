@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Event Delegation Example</title>
+    <meta charset="UTF-8" />
+    <style>
+        table, th, td {
+          border: 1px solid;
+        }
+        </style>
+</head>
+
+<body>
+    <button id="generator">Soy el creador</button>
+    <table>
+        <tbody id="bGenerados">
+
+        </tbody>
+    </table>
+    <script>
+        let contador = 0; 
+        document.getElementById("generator").addEventListener("click", event =>{
+            document.getElementById("bGenerados").innerHTML+="<tr><td>"+contador+"</td><td>Este boton no estaba</td></tr>";
+            contador++;
+        })
+
+       let botones = document.getElementById("bGenerados");
+
+       botones.addEventListener("click",(x)=>{
+            alert("Adios");
+            let boton = x.target;
+
+            if(boton == "button"){
+                boton.parentElement.removeChild(boton);
+            }
+       })
+
+    </script>
+</body>
+
+</html>

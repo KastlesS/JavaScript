@@ -1,0 +1,32 @@
+<!DOCTYPE HTML> 
+<html lang="es-ES"> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<title>DOM: Ejercicio Enlaces</title> 
+	</head> 
+	<body> 
+		<h1>Enlaces</h1> 
+        <div>
+            <p><a href="http://www.google.es">Google España</a></p> 
+            <p><a href="http://idesweb.uaedf.ua.es/">Curso iDesWeb</a></p> 
+            <p><a href="http://www.w3schools.com/">w3schools</a></p> 
+            <p><input type="button" value="Evaluar" onclick="evaluar()"></p> 
+        </div>
+		
+        <script>
+            function evaluar(){
+                let body = document.body;
+                console.log(body);
+                let hijo=body.firstElementChild.nextElementSibling;
+                console.log(hijo);
+                let primerEnlace=hijo.firstElementChild.firstElementChild.href;
+                let ultimoEnlace=hijo.firstElementChild.lastElementChild.href;
+                console.log("Primer enlace: " + primerEnlace);
+                console.log("Último enlace: " + ultimoEnlace);
+                let numero=(hijo.children.length)-1;
+                console.log("Número de enlaces: " + numero);
+                
+            }
+        </script>
+	</body> 
+</html>

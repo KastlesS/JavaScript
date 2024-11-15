@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>Reverse</title>
+    <script>
+    function reverse() {           // Reverse the order of the children of Node n 
+        console.log(document.body.children);
+        const array=[];
+        for(let i=0;i<document.body.children.length;i++){
+            array[i]=document.body.children[i];
+        }
+        console.log(array);
+        console.log(array.reverse());
+
+        //REEMPLAZAR
+        let cont=array.length;
+        for(let i=0;array.length;i++){
+            document.body.replaceChild()
+        }
+    }
+    </script>
+</head>
+<body>
+    <p>paragraph #1 </p>  
+    <p>paragraph #2 </p>
+    <p>paragraph #3 </p>
+    <button onclick="reverse()">Click Me to Reverse</button>
+</body>
+</html>

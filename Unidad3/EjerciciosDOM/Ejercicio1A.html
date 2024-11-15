@@ -1,0 +1,22 @@
+<!DOCTYPE HTML> 
+<html lang="es-ES"> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<title>DOM: Ejercicio Enlaces</title> 
+	</head> 
+	<body> 
+		<h1>Enlaces</h1> 
+		<p><a href="http://www.google.es">Google España</a></p> 
+		<p><a href="http://idesweb.uaedf.ua.es/">Curso iDesWeb</a></p> 
+		<p><a href="http://www.w3schools.com/">w3schools</a></p> 
+		<p><input type="button" value="Evaluar" onclick="evaluar()"></p> 
+
+        <script>
+            function evaluar(){
+                console.log("Número de enlaces en la página: " + document.getElementsByTagName("a").length);
+                console.log("Primer enlace de la página: " + document.getElementsByTagName("a")[0].href);
+                console.log("último enlace de la página: " + document.getElementsByTagName("a")[(document.getElementsByTagName("a").length)-1].href);
+            }
+        </script>
+	</body> 
+</html>

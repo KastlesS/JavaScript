@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Obligatorio</title>
+</head>
+<body>
+    <h1>Vuelos JavaScript</h1>
+    <p id="puertas"></p>
+    <script>
+        //CREAMOS EL OBJETO AVIÓN
+        function Avion(numVuelo,motores,flaps){
+            this.numVuelo=numVuelo;
+            this.motores=motores;
+            this.flaps=flaps;
+            this.despegar=function(){
+                this.motores="encendidos";
+                this.flaps="extendido";
+            };
+            this.aterrizar=function(){
+                this.motores="apagados";
+                this.flaps="recogidos";
+            };
+        }
+
+        //CREAMOS UN ARRAY CON 400 OBJETOS DE TIPO AVIÓN
+        let cont=0;
+        const vuelos=[];
+        while(cont<400){
+            if(cont<400){
+                const vuelo = new Avion(cont+1,"apagados","recogidos");
+                vuelos[cont]=vuelo;
+                cont++;
+            }
+        }
+
+        //AÑADIMOS PROPIEDADES AL PROTOTIPO DEL OBJETO
+        Avion.prototype.puertaPilotos="cerrada";
+
+        Avion.prototype.abrirPuerta=function(){
+            this.puertaPilotos="abierta";
+        };
+
+        Avion.prototype.cerrarPuerta=function(){
+            this.puertaPilotos="cerrada";
+        };
+
+        //MOSTRAMOS POR PRIMERA VEZ TODOS LOS AVIONES CON LOS VALORES PERDETERMINADOS
+        let txt="";
+        for(let x=0;x<vuelos.length;x++){
+            txt+="Vuelo número: " + vuelos[x].numVuelo + "<br>" + "Puertas: " + vuelos[x].puertaPilotos + "<br>" + "Motores: " + vuelos[x].motores + "<br> <br>";
+        }
+        document.getElementById("puertas").innerHTML=txt;
+
+        
+        //CREAMOS UNA FUNCIÓN PARA DEVOLVER UN VUELO DETERMINADO
+        function vueloUsuario(usuario,vuelos){
+            return vuelos[usuario-1];
+        }
+
+        //VALIDAMOS EL INPUT DEL USUARIO DEL PROMPT
+        function validar(opcion){
+            let opcionUsuario=opcion.toLowerCase();
+            if(opcionUsuario == "a" || opcionUsuario == "b"){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+        //INICIA EL PROGRAMA
+        let flag=false;
+        while(!flag){
+            let usuario=parseInt(prompt("Elige un vuelo a controlar hasta introducir 0"));
+            if(usuario>0 && usuario<=400){
+                let avionUsuario=vueloUsuario(usuario,vuelos);
+                if(avionUsuario.motores=="encendidos" && avionUsuario.puertaPilotos=="cerrada"){
+                    let opcion=prompt("a) Aterrizar \nb) Abrir puertas");
+                    if(validar(opcion)){
+                        if(opcion=="a"){
+                            avionUsuario.aterrizar();
+                            vuelos[usuario-1]=avionUsuario;
+                        }else{
+                            avionUsuario.abrirPuerta();
+                            vuelos[usuario-1]=avionUsuario;
+                        }
+                    }else{
+                        alert("Debes introducir a o b");
+                    }
+                }else if(avionUsuario.motores=="apagados" && avionUsuario.puertaPilotos=="cerrada"){
+                    let opcion=prompt("a) Despegar \nb) Abrir puertas");
+                    if(validar(opcion)){
+                        if(opcion=="a"){
+                            avionUsuario.despegar();
+                            vuelos[usuario-1]=avionUsuario;
+                        }else{
+                            avionUsuario.abrirPuerta();
+                            vuelos[usuario-1]=avionUsuario;
+                        }
+                    }else{
+                        alert("Debes introducir a o b");
+                    }
+                }else if(avionUsuario.motores=="apagados" && avionUsuario.puertaPilotos=="abierta"){
+                    let opcion=prompt("a) Despegar \nb) Cerrar puertas");
+                    if(validar(opcion)){
+                        if(opcion=="a"){
+                            avionUsuario.despegar();
+                            vuelos[usuario-1]=avionUsuario;
+                        }else{
+                            avionUsuario.cerrarPuerta();
+                            vuelos[usuario-1]=avionUsuario;
+                        }
+                    }else{
+                        alert("Debes introducir a o b");
+                    }
+                }else if(avionUsuario.motores=="encendidos" && avionUsuario.puertaPilotos=="abierta"){
+                    let opcion=prompt("a) Aterrizar \nb) Cerrar puertas");
+                    if(validar(opcion)){
+                        if(opcion=="a"){
+                            avionUsuario.despegar();
+                            vuelos[usuario-1]=avionUsuario;
+                        }else{
+                            avionUsuario.cerrarPuerta();
+                            vuelos[usuario-1]=avionUsuario;
+                        }
+                    }else{
+                        alert("Debes introducir a o b");
+                    }
+                }
+            }else if(usuario==0){
+                alert("Ya has terminado :)");
+                flag=true;
+            }else{
+                alert("Has introducido un número no válido :(");
+            }
+
+            let txt2="";
+            for(let x=0;x<vuelos.length;x++){
+                txt2+="Vuelo número: " + vuelos[x].numVuelo + "<br>" + "Puertas: " + vuelos[x].puertaPilotos + "<br>" + "Motores: " + vuelos[x].motores + "<br> <br>";
+            }
+            document.getElementById("puertas").innerHTML=txt2;
+        }
+    </script>
+</body>
+</html>
