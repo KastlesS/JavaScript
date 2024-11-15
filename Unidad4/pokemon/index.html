@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+</head>
+<body>
+    <h1>Objetos con Pokemon</h1>
+    <script>
+        function Pokemon(nombre, tipo){
+            this.nombre=nombre;
+            this.tipo=tipo;
+            /* this.damePokemon = function(){
+                console.log(this.nombre + " es de tipo " + this.tipo);
+            } */
+        }
+
+        Pokemon.prototype.damePokemon=function(){
+            console.log(this.nombre + " es de tipo " + this.tipo);
+        }
+
+        function Pokedex(nombre, tipo, evolucion, numPatas){
+            Pokemon.call(this,nombre,tipo);
+            this.evolucion=evolucion;
+            this.numPatas=numPatas;
+            /* this.infoSalto=function(){
+                if((this.evolucion=="si")&&(this.numPatas>=3)){
+                    return 100;
+                }else{
+                    return 5;
+                }
+            } */
+        }
+
+        Pokedex.prototype=Object.create(Pokemon.prototype);
+
+        Pokedex.prototype.infoSalto=function(){
+            if((this.evolucion=="si")&&(this.numPatas>=3)){
+                return 100;
+            }else{
+                return 5;
+            }
+        }
+
+        
+
+        let pikachu = new Pokemon("pikachu","electrico");
+        let charmander = new Pokedex("charmander","fuego","no",7);
+        let cachupika = new Pokedex("cachupika", "electrico","si",4);
+    </script>
+</body>
+</html>
