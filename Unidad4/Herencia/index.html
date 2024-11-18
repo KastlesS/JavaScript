@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herencia</title>
+</head> 
+<body>
+    <script>
+        const circulo={
+            radio:5,
+            circunferencia: function(){
+                return "La circunferencia es: " + (2+Math.PI+this.radio) + " cm";
+            },
+            superficie:function(){
+                return "La superficie es: " + (Math.pow(this.radio,Math.PI));
+            }
+        }
+
+        function Circulo(radio){
+            this.radio=radio;
+            /* this.circunferencia=function(){
+                return "La circunferencia es: " + (2+Math.PI+this.radio) + " cm";
+            };
+            this.superficie=function(){
+                return "La superficie es: " + (Math.pow(this.radio,2)*Math.PI);
+            }; */
+        }
+
+        Circulo.prototype.circunferencia=function(){
+            return "La circunferencia es: " + (2+Math.PI+this.radio) + " cm";
+        }
+
+        Circulo.prototype.superficie=function(){
+            return "La superficie es: " + (Math.pow(this.radio,2)*Math.PI);
+        }
+
+        let circulo1 = new Circulo(1);
+        let circulo2 = new Circulo(2);
+        let circulo3 = new Circulo(3);
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figura</title>
+</head>
+<body>
+    <script>
+        function Figura(dimesiones, color){
+            this.dimesiones=dimesiones;
+            this.color=color;
+        }
+
+        Figura.prototype.informar=function(){
+            return "El número de dimensiones es " + this.dimesiones + " y su color es: " + this.color;
+        }
+
+        function Cuadrado(dimesiones,color,longitud){
+            Figura.call(this,dimesiones,color);
+            this.longitud=longitud;
+        }
+
+        Cuadrado.prototype=Object.create(Figura.prototype);
+
+        Cuadrado.prototype.perimetro=function(){
+            return "El perímetro del cuadrado es: " + (this.longitud*4);
+        }
+
+        Cuadrado.prototype.informar=function(){
+            return "El número de dimensiones es " + this.dimesiones + " y su color es: " + this.color + " y "  + this.perimetro();
+        }
+        
+        let figura = new Figura(4,"azul");
+        let cuadrado = new Cuadrado(2,"verde",2);
+    </script>
+</body>
+</html>
