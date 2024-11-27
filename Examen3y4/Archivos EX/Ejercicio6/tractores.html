@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tractores</title>
+</head>
+<body>
+    <script>
+        /* Creamos la función constructora Vehiculo*/
+        function Vehiculo(combustible,medio,pilotos){
+            this.combustible=combustible;
+            this.medio=medio;
+            this.pilotos=pilotos;
+        }
+
+        /* Creamos las funciones de los objetos de tipo Vehiculo en su prototipo */
+        /* Función informar: */
+        Vehiculo.prototype.informar=function(){
+            return "Combustible: " + this.combustible + " / Medio: " + this.medio + " / Pilotos: " + this.pilotos; 
+        }
+
+        /* Función esEco */
+        Vehiculo.prototype.esEco=function(){
+            if(this.combustible=="electrico"){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        /* Creamos la función constructora Tractor con las propiedades de Vehiculo*/
+        function Tractor(ruedas,catalizador){
+            this.ruedas=ruedas;
+            this.catalizador=catalizador;
+            Vehiculo.call(this,combustible="diesel",medio="tierra",pilotos=1);
+        }
+
+        /* Añadimos al prototipo de tractor los metodos de Vehiculo */
+        Tractor.prototype=Object.create(Vehiculo.prototype);
+
+        /* Método informar de tractor */
+        Tractor.prototype.informar2=function(){
+            return "Un tractor se utiliza para el campo: " + this.informar();
+        }
+
+        /* Métoso esVerde */
+        Tractor.prototype.esVerde=function(){
+            if(!this.esEco || this.catalizador==undefined){
+                console.log("El tractor es contaminante");
+            }else{
+                console.log("El tractor es verde");
+            }
+        }
+
+        /* Declaramos los objetos */
+        let coche = new Vehiculo("diesel","tierra",1);
+        let avion = new Vehiculo("queroseno","aire",2);
+        let tractor1 = new Tractor(4);
+        let tractor2 = new Tractor(6,1);
+
+        /* Métodos */
+        coche.informar();
+        coche.esEco();
+
+        avion.informar();
+        avion.esEco();
+
+        tractor1.informar2();
+        tractor1.esEco();
+        tractor1.esVerde();
+
+        tractor2.informar2();
+        tractor2.esEco();
+        tractor2.esVerde();
+    </script>
+</body>
+</html>

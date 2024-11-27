@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        td.azul {
+            background-color: aqua;
+        }
+    </style>
+
+    <body>
+
+        <h2>A basic HTML table</h2>
+
+        <table id="mitabla">
+            <tbody>
+                <tr>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td class="azul">X</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+            const tabla = document.getElementById("mitabla");
+            
+            let nodo = tabla.firstChild;
+            /*¿Qué nodo hemos obtenido en la variable nodo? ¿A qué se debe este nodo?
+            Compruébalo en la consola y escribe tu respuesta en el siguiente comentario*/
+            /*
+                En la variable nodo obtenemos el primer hijo del elemento tabla (no el primer elemento hijo).
+                Es decir, obtenemos un salto de línea y NO su primer elemento.
+
+            */
+
+            let nodo2 = tabla.firstElementChild;
+            /*¿Qué nodo hemos obtenido en la variable nodo2? ¿Por qué obtenemos este nodo?
+            Compruébalo en la consola y escribe tu respuesta en el siguiente comentario*/
+            /*
+                En la variable nodo2 obtenemos el primer elemento hijo de la tabla, es decir, el tbody.
+                Este nodo lo podemos obtener para poder modificar los elementos tr de la tabla ya que estos son 
+                hijos del nodo2.
+            */          
+
+        </script>
+    </body>
+
+</html>
