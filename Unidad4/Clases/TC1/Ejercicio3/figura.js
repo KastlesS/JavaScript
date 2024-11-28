@@ -5,7 +5,7 @@ class Figura{
     }
 
     informar(){
-        return "Dimensiones: " + this.dimensiones + " \n Color: " + this.color; 
+        return "Dimensiones: " + this.dimensiones + " \nColor: " + this.color; 
     }
 }
 
@@ -16,7 +16,7 @@ class Cuadrado extends Figura{
     }
 
     informar(){
-        return "Dimensiones: " + this.dimensiones + " \nColor: " + this.color + " \nSuperficie: " + (this.longitud*this.longitud); 
+        return super.informar() + " \nSuperficie: " + (this.longitud*this.longitud); 
     }
 
     perimetro(){
