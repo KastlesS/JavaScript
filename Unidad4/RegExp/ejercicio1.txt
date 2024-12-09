@@ -1,0 +1,7 @@
+Expresión Regular:
+
+a) /^[a-zA-Z]+$/ 
+
+b) /^[A-Z][a-z]+$/
+
+c) /^[A-Z][a-z]+ [A-Z][a-z]+$/
