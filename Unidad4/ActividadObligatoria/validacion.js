@@ -1,4 +1,3 @@
-/* Ejercicio 2 */
 function validarN(n){
     let expresion = /^[A-Z][a-z]{2,30}$|^([A-Z][a-z]{2,30}\s?){1,3}[A-Z][a-z]{2,30}$/;
     return expresion.test(n);
