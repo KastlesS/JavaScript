@@ -61,7 +61,6 @@ boton.addEventListener("click",function(event){
     }else if(!validarN(apellidos.value)){
         error+="Apellidos incorrectos.\n";
         event.preventDefault();
-        apellidos.focus();
     }else if(!validarEdad(edad.value)){
         error+="Edad incorrecta\n";
         event.preventDefault();
@@ -93,3 +92,4 @@ boton.addEventListener("click",function(event){
     }
     errores.innerHTML=error;
 })
+
