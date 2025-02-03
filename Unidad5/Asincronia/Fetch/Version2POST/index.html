@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <title>Ejercicios Unidad 5</title>
+</head>
+<body>
+    <script>
+        function enviarPersonaPOST() {
+            // Solicitar datos al usuario
+            const nombre = prompt("Introduce el nombre de la persona:");
+            const apellidos = prompt("Introduce los apellidos de la persona:");
+            const profesion = prompt("Introduce la profesión de la persona:");
+
+            // Crear el objeto persona
+            const persona = {
+                nombre: nombre,
+                apellidos: apellidos,
+                profesion: profesion
+            };
+
+            // Convertir el objeto persona a formato JSON
+            const personaJSON = JSON.stringify(persona);
+
+            // Realizar la petición al servidor con el método POST
+            fetch("guardarPersonas.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json" // Indicamos que enviamos JSON
+                },
+                body: personaJSON
+            })
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error("Error al realizar la petición al servidor.");
+                    }
+                    return response.json();
+                })
+                .then(function (datos) {
+                    console.log("Contenido actualizado del archivo personas.json:", datos);
+                })
+                .catch(function (error) {
+                    console.error("Hubo un problema con la solicitud:", error);
+                });
+        }
+        enviarPersonaPOST();
+    </script>
+</body>
+</html>

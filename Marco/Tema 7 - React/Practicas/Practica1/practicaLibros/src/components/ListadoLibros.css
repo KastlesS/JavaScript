@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.listado__container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lista__container-libro{
+    box-sizing: border-box;
+    width: 100%;
+    gap: 5px;
+    display: flex; 
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+
+
+
+/* Media queries */
+
+@media (max-width: 600px) {
+    .cabecera { text-align: center; }
+    .lista__container-libro {
+        flex-direction: column; /* Cambia la dirección a columna */
+        align-items: center; /* Centra los elementos en la columna */
+    }
+}

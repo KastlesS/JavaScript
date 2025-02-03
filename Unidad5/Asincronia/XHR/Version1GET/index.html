@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <title>Ejercicios Unidad 5</title>
+</head>
+<body>
+    <script>
+        let nombre = prompt("Ingresa el nombre: ");
+        let apellidos = prompt("Ingresa los apellidos: ");
+        let profesion = prompt("Ingresa la profesion");
+
+        const persona = {
+            nombre: nombre,
+            apellidos: apellidos,
+            profesion: profesion
+        };
+
+        function getDataFromApi(url,callback){
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET",url);
+            xhr.onload = function (){
+                if(xhr.status === 200){
+                    callback(this.response);
+                }else{
+                    console.log("Error " + xhr.status);
+                }
+            };
+            xhr.onerror = function(){
+                console.log("Error " + xhr.status);
+            }
+            xhr.send();
+        }
+
+        function callback(persona){
+            console.log(persona);
+        }
+
+        getDataFromApi("guardarPersonas.php",callback);
+    </script>
+</body>
+</html>

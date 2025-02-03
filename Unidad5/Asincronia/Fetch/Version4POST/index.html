@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <title>Ejercicios Unidad 5</title>
+</head>
+<body>
+     <script>
+        async function enviarPersonaPOST() {
+            try {
+                // Solicitar datos al usuario
+                const nombre = prompt("Introduce el nombre de la persona:");
+                const apellidos = prompt("Introduce los apellidos de la persona:");
+                const profesion = prompt("Introduce la profesión de la persona:");
+
+                // Crear el objeto persona
+                const persona = {
+                    nombre: nombre,
+                    apellidos: apellidos,
+                    profesion: profesion
+                };
+
+                // Convertir el objeto persona a formato JSON
+                const personaJSON = JSON.stringify(persona);
+
+                // Realizar la petición al servidor con el método POST
+                const response = await fetch("guardarPersonas.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json" // Indicamos que enviamos datos JSON
+                    },
+                    body: personaJSON
+                });
+
+                // Verificar si la respuesta es exitosa
+                if (!response.ok) {
+                    throw new Error("Error al realizar la petición al servidor.");
+                }
+
+                // Obtener los datos de la respuesta en formato JSON
+                const datos = await response.json();
+
+                // Mostrar la respuesta obtenida en la consola
+                console.log("Contenido actualizado del archivo personas.json:", datos);
+            } catch (error) {
+                console.error("Hubo un problema con la solicitud:", error);
+            }
+        }
+        enviarPersonaPOST();
+     </script>
+</body>
+</html>
